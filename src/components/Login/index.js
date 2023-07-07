@@ -1,4 +1,4 @@
-import {useState} from 'react'
+import {useEffect, useState} from 'react'
 import Cookies from 'js-cookie'
 import {redirect, useNavigate, Link} from 'react-router-dom'
 import './index.css'
@@ -9,6 +9,13 @@ const Login = () => {
   const [errorMsg, changeErrorMsg] = useState('')
 
   const navigate = useNavigate()
+
+  useEffect(() => {
+    const jwtToken = Cookies.get('jwt_token')
+    if (jwtToken !== undefined) {
+      navigate('/')
+    }
+  })
 
   const onChangeUsername = event => {
     changeUsername(event.target.value.toLowerCase())
