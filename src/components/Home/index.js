@@ -1,15 +1,26 @@
+import { useEffect } from 'react'
+import Cookies from 'js-cookie'
+import { useNavigate } from 'react-router-dom'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import './index.css'
 import MoneyManagerContext from '../../context/MoneyManagerContext'
 
 const Home = () => {
-return (
-<MoneyManagerContext.Consumer>
-{value => {
-  const {income, expenses} = value
+  const navigate = useNavigate()
+  useEffect(() => {
+    const jwtToken = Cookies.get("jwt_token")
+    if (jwtToken === undefined) {
+      navigate('/login')
+    }
+  })
 
   return (
+  <MoneyManagerContext.Consumer>
+  {value => {
+    const {income, expenses} = value
+
+    return (
       <Row>
         <Col xs={12}>
           <header>
@@ -45,10 +56,10 @@ return (
           </div>
         </Col>
       </Row>
+    )
+  }}
+  </MoneyManagerContext.Consumer>
   )
-}}
-</MoneyManagerContext.Consumer>
-)
 }
 
 export default Home
