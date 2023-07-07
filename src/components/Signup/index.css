@@ -1,0 +1,99 @@
+.signup-card {
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  width: 90%;
+}
+
+.signup-landing-image {
+  width: 40%;
+  display: none;
+  margin: 0 20px;
+}
+
+.signup-form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.signup-website-logo {
+  width: 60px;
+  align-self: center;
+  margin: 0;
+}
+
+.signup-heading {
+  font-family: serif;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 32px;
+  text-align: center;
+  color: #262626;
+  margin: 0 0 20px 0;
+}
+
+.signup-label {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 16px;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+  color: #262626;
+  margin: 0 0 10px 0;
+}
+
+.signup-input {
+  background: #eeeeee;
+  border-radius: 5px;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  color: #262626;
+  margin: 0 0 20px 0;
+  padding: 10px;
+  outline: none;
+  border: none;
+}
+
+.signup-button {
+  background: #4094ef;
+  border-radius: 8px;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 24px;
+  color: #ffffff;
+  outline: none;
+  border: none;
+  align-self: center;
+  padding: 5px 20px;
+}
+
+.signup-error-msg {
+  font-style: normal;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 16px;
+  color: #ef4444;
+  margin: 0 0 10px 0;
+}
+
+@media screen and (min-width: 768px) {
+  .signup-card {
+    width: 100%;
+  }
+
+  .signup-landing-image {
+    display: inline;
+  }
+
+  .signup-form {
+    margin: 15px;
+    margin: auto;
+  }
+}

@@ -1,0 +1,87 @@
+header {
+    background-image: url("https://res.cloudinary.com/do4qwwms8/image/upload/v1626263091/Money%20Manager/money-manager-header_rxlcrn.png");
+    height: 25vh;
+    background-size: cover;
+    border-radius: 35px;
+    margin-bottom: 20px;
+    padding: 50px 30px;
+}
+
+.heading {
+    color: #475569;
+    font-size: 25px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.description {
+    color: #475569;
+    font-size: 16px;
+    font-weight: 500;
+    margin: 0;
+}
+
+.description span {
+    color: #0B69FF;
+}
+
+.money-card {
+    display: flex;
+    padding: 10px 20px;
+    align-items: center;
+    margin: auto;
+    border: 1px solid;
+    border-radius: 10px;
+}
+
+.money-card-image {
+    width: 50px;
+}
+
+.money-card-content {
+    padding: 0 0 0 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.money-card-title {
+    color: #475581;
+    font-size: 12px;
+    font-weight: 500;
+    margin: 0;
+}
+
+
+.money-card-amount {
+    color: #475569;
+    font-size: 16px;
+    font-weight: bold;
+    margin: 0;
+}
+
+.balance-card {
+    border-color: #84CC16;
+    background-color: #ECFCCB;
+}
+
+.income-card {
+    border-color: #06B6D4;
+    background-color: #CFFAFE;
+}
+
+.expenses-card {
+    border-color: #7C3AED;
+    background-color: #EDE9FE;
+}
+
+@media screen and (min-width: 768px) {
+    .money-card {
+        padding: 20px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .money-card {
+        margin-bottom: 20px;
+    }
+}
