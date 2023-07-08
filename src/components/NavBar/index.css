@@ -1,3 +1,9 @@
 .logo {
     width: 50px;
 }
+
+.logout-button {
+    font-size: 14px;
+    padding: 0 10px;
+    line-height: 0;
+}

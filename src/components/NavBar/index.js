@@ -1,10 +1,19 @@
-import Container from 'react-bootstrap/Container';
+import Cookies from 'js-cookie';
+import { useNavigate } from 'react-router-dom';
+import Container from 'react-bootstrap/Container'
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import Offcanvas from 'react-bootstrap/Offcanvas';
+import Button from 'react-bootstrap/Button'
 import './index.css'
 
 function NavigationBar() {
+  const navigate = useNavigate()
+  const onClickLogout = () => {
+    Cookies.remove('jwt_token')
+    navigate('/login')
+  }
+
   return (
     <Navbar expand='md' className="bg-body-tertiary mb-3">
       <Container>
@@ -29,6 +38,7 @@ function NavigationBar() {
               <Nav.Link href="/history">History</Nav.Link>
               <Nav.Link href="/about">About</Nav.Link>
               <Nav.Link href="/add-transaction">Add Transaction</Nav.Link>
+              <Button className='logout-button' variant="primary" onClick={onClickLogout}>Logout</Button>
             </Nav>
           </Offcanvas.Body>
         </Navbar.Offcanvas>

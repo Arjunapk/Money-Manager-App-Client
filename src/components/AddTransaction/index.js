@@ -50,9 +50,8 @@ const AddTransaction = () => {
     }
     const response = await fetch(url, options)
     await response.json()
-    setTimeout(() => {
-      navigate('/')
-    }, 1000);
+    navigate('/')
+    window.location.reload()
   }
 
   return (
