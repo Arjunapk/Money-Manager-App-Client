@@ -31,7 +31,7 @@ const Home = () => {
           <Row>
             <Col xs={12}>
               <header>
-                <h1 className='heading'>{`Hi, ${userDetails === undefined ? '' : userDetails.name}`}</h1>
+                <h1 className='heading'>{`Hi, ${userDetails === null ? '' : userDetails.name}`}</h1>
                 <p className='description'>Welcome back to your <span>Money Manager</span></p>
               </header>
             </Col>
