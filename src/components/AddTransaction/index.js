@@ -49,8 +49,10 @@ const AddTransaction = () => {
       body: JSON.stringify(transactionDetails)
     }
     const response = await fetch(url, options)
-    const data = await response.json()
-    console.log(data)
+    await response.json()
+    setTimeout(() => {
+      navigate('/')
+    }, 1000);
   }
 
   return (
@@ -64,7 +66,7 @@ const AddTransaction = () => {
           <label className='add-transaction-label' htmlFor='type'>TYPE</label>
           <select className='add-transaction-input form-control' id='type' value={type} onChange={onChangeType}>
             {typeList.map(each => (
-              <option key={each.id} value={each.displayText}>{each.displayText}</option>
+              <option key={each.id} value={each.id}>{each.displayText}</option>
             ))}
           </select>
           <label className='add-transaction-label' htmlFor='amout'>AMOUNT</label>

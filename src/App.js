@@ -18,10 +18,11 @@ function App() {
   const updateIncomeAndExpenses = data => {
     let incomeValue = 0
     let expensesValue = 0
+    console.log(data)
     data.forEach(each => {
-      if (each.type === 'Income') {
+      if (each.type === 'INCOME') {
         incomeValue += parseInt(each.amount)
-      } else {
+      } else if (each.type === 'EXPENSES') {
         expensesValue += parseInt(each.amount)
       }
     })
@@ -42,7 +43,9 @@ function App() {
       .then(data => data.json())
       .then(data => {
         updateTransactionsList(data)
-        updateIncomeAndExpenses(data)
+        if (jwtToken !== undefined) {
+          updateIncomeAndExpenses(data)
+        }
       });
   }, [])
 
