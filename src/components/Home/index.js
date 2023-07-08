@@ -21,8 +21,9 @@ const Home = () => {
   return (
   <MoneyManagerContext.Consumer>
   {value => {
-    const {userDetails, income, expenses} = value
-    
+    const {income, expenses} = value
+    const userDetails = JSON.parse(localStorage.getItem('user_details'))
+
     return (
       <>
         <NavigationBar />
@@ -47,7 +48,7 @@ const Home = () => {
               <div className='money-card income-card'>
                 <img className='money-card-image' src='https://assets.ccbp.in/frontend/react-js/money-manager/income-image.png' alt='' />
                 <div className='money-card-content'>
-                  <p className='money-card-title'>Your Balance</p>
+                  <p className='money-card-title'>Your Income</p>
                   <p className='money-card-amount'>Rs {income}</p>
                 </div>
               </div>
@@ -56,7 +57,7 @@ const Home = () => {
               <div className='money-card expenses-card'>
                 <img className='money-card-image' src='https://assets.ccbp.in/frontend/react-js/money-manager/expenses-image.png' alt='' />
                 <div className='money-card-content'>
-                  <p className='money-card-title'>Your Balance</p>
+                  <p className='money-card-title'>Your Expenses</p>
                   <p className='money-card-amount'>Rs {expenses}</p>
                 </div>
               </div>

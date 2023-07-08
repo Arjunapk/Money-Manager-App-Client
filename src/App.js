@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import {Routes, Route} from 'react-router-dom'
 import Container from 'react-bootstrap/Container'
 import 'bootstrap/dist/css/bootstrap.min.css'
@@ -8,14 +8,46 @@ import Signup from './components/Signup'
 import AddTransaction from './components/AddTransaction'
 import MoneyManagerContext from './context/MoneyManagerContext'
 import './App.css'
+import Cookies from 'js-cookie'
 
 function App() {
-  const [userDetails, updateUserDetails] = useState({})
+  const [transactionsList, updateTransactionsList] = useState([])
   const [income, changeIncome] = useState(0)
   const [expenses, changeExpenses] = useState(0)
 
+  const updateIncomeAndExpenses = data => {
+    let incomeValue = 0
+    let expensesValue = 0
+    data.forEach(each => {
+      if (each.type === 'Income') {
+        incomeValue += parseInt(each.amount)
+      } else {
+        expensesValue += parseInt(each.amount)
+      }
+    })
+    changeIncome(incomeValue)
+    changeExpenses(expensesValue)
+  }
+
+  useEffect(() => {
+    const url = 'https://money-manager-api-v4pu.onrender.com/transactions'
+    const jwtToken = Cookies.get('jwt_token')
+    const options = {
+      method: 'GET',
+      headers: {
+        authorization: `Bearer ${jwtToken}`
+      }
+    }
+    fetch(url, options)
+      .then(data => data.json())
+      .then(data => {
+        updateTransactionsList(data)
+        updateIncomeAndExpenses(data)
+      });
+  }, [])
+
   return (
-    <MoneyManagerContext.Provider value={{userDetails, updateUserDetails, income, changeIncome, expenses, changeExpenses}}>
+    <MoneyManagerContext.Provider value={{transactionsList, updateTransactionsList, income, changeIncome, expenses, changeExpenses}}>
       <Container fluid>
         <Routes>
           <Route exact path='/signup' element={<Signup />} />

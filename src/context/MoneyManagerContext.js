@@ -1,8 +1,8 @@
 import React from "react";
 
 const MoneyManagerContext = React.createContext({
-    userDetails: {},
-    updateUserDetails: () => {},
+    transactionsList: [],
+    updateTransactionsList: () => {},
     income: 0,
     changeIncome: () => {},
     expenses: 0,
