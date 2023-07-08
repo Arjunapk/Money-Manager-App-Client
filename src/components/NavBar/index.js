@@ -28,6 +28,7 @@ function NavigationBar() {
               <Nav.Link href="/">Home</Nav.Link>
               <Nav.Link href="/history">History</Nav.Link>
               <Nav.Link href="/about">About</Nav.Link>
+              <Nav.Link href="/add-transaction">Add Transaction</Nav.Link>
             </Nav>
           </Offcanvas.Body>
         </Navbar.Offcanvas>

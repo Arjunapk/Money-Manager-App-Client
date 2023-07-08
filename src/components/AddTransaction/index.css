@@ -1,0 +1,50 @@
+.add-transaction-card {
+    min-height: 80vh;
+    display: flex;
+    margin: auto;
+}
+
+.add-transactin-form {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    justify-content: center;
+    width: 100%;
+    padding: 20px;
+    border-radius: 10px;
+    border: 1px solid #666565;
+}
+
+.add-transaction-heading {
+    align-self: center;
+    text-align: center;
+    font-size: 30px;
+    font-weight: bold;
+    color: #262626;
+    margin: 0 0 20px 0;
+}
+
+.add-transaction-label{
+    font-size: 12px;
+    font-weight: 500;
+    color: #262626;
+    margin: 0 0 5px 0;
+}
+
+.add-transaction-input{
+    font-size: 16px;
+    font-weight: 500;
+    color: #262626;
+    margin: 0 0 20px 0;
+}
+
+.add-transaction-button {
+    align-self: center;
+    padding: 5px 20px;
+}
+
+@media screen and (min-width: 768px) {
+    .add-transactin-form {
+        width: 40%;
+    }
+}

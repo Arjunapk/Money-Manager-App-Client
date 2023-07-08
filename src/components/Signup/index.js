@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, Link } from 'react-router-dom'
 import Cookies from 'js-cookie'
 import './index.css'
 
@@ -172,6 +172,7 @@ const Signup = () => {
         <button className="signup-button" type="submit">
           Signup
         </button>
+        <p className="login-text">If you have account please <Link to='/login' className='login-link' >Login</Link></p>
       </form>
     </div>
   )
