@@ -61,7 +61,7 @@ const AddTransaction = () => {
         <form className='add-transactin-form' onSubmit={onSubmitAddTransaction}>
           <p className='h1 add-transaction-heading'>Add Transaction</p>
           <label className='add-transaction-label' htmlFor='title'>TITLE</label>
-          <input className='add-transaction-input form-control' id='title' type='text' value={title} onChange={onChangeTitle} placeholder='Title' />
+          <input className='add-transaction-input form-control' id='title' type='text' value={title} onChange={onChangeTitle} placeholder='Title' required />
           <label className='add-transaction-label' htmlFor='type'>TYPE</label>
           <select className='add-transaction-input form-control' id='type' value={type} onChange={onChangeType}>
             {typeList.map(each => (
@@ -69,7 +69,7 @@ const AddTransaction = () => {
             ))}
           </select>
           <label className='add-transaction-label' htmlFor='amout'>AMOUNT</label>
-          <input className='add-transaction-input form-control' id='amount' type='number' value={amount} onChange={onChangeAmount} placeholder='Amount' />
+          <input className='add-transaction-input form-control' id='amount' type='number' value={amount} onChange={onChangeAmount} placeholder='Amount' required />
           <button type='submit' className='add-transaction-button btn btn-primary'>Add Transaction</button>
         </form>
       </Container>

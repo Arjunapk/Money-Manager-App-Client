@@ -39,6 +39,7 @@ function App() {
         authorization: `Bearer ${jwtToken}`
       }
     }
+    
     fetch(url, options)
       .then(data => data.json())
       .then(data => {

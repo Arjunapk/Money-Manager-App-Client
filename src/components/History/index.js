@@ -17,6 +17,14 @@ const History = () => {
     }
   })
 
+  const onClickHistory = () => {
+    navigate('/history')
+  }
+  
+  const onClickAddTransaction = () => {
+    navigate('/add-transaction')
+  }
+
   return (
     <MoneyManagerContext.Consumer>
       {value => {
@@ -31,30 +39,37 @@ const History = () => {
             <NavigationBar />
             <Container>
               {transactionsList.length > 0 && (
-                <Table responsive className='history-table'>
-                  <thead>
-                    <tr>
-                      <th>S.No</th>
-                      {Array.from(headings.slice(2)).map((item, index) => (
-                        <th key={index}>{item.toUpperCase()}</th>
-                      ))}
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {transactionsList.map((item, index) => {
-                      const activeStyle = item.type === 'INCOME' ? 'income' : 'expenses'
-                      return (
-                        <tr key={item.transaction_id}>
-                          <td className={activeStyle}>{index + 1}</td>
-                          <td className={activeStyle}>{item.type}</td>
-                          <td className={activeStyle}>{item.title}</td>
-                          <td className={activeStyle}>{item.amount}</td>          
-                        </tr>
-                      )
-                    })}
-                  </tbody>
-                </Table>
+                <>
+                  <Table responsive className='history-table'>
+                    <thead>
+                      <tr>
+                        <th>S.No</th>
+                        {Array.from(headings.slice(2)).map((item, index) => (
+                          <th key={index}>{item.toUpperCase()}</th>
+                        ))}
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {transactionsList.map((item, index) => {
+                        const activeStyle = item.type === 'INCOME' ? 'income' : 'expenses'
+                        return (
+                          <tr key={item.transaction_id}>
+                            <td className={activeStyle}>{index + 1}</td>
+                            <td className={activeStyle}>{item.type}</td>
+                            <td className={activeStyle}>{item.title}</td>
+                            <td className={activeStyle}>{item.amount}</td>          
+                          </tr>
+                        )
+                      })}
+                    </tbody>
+                  </Table>
+                  <div className='button-card'>
+                    <button type='button' className='btn btn-primary' onClick={onClickHistory}>History</button>
+                    <button type='button' className='btn btn-primary' onClick={onClickAddTransaction}>Add Transaction</button>
+                  </div>
+                </>
               )}
+              
             </Container>
           </>
         )
