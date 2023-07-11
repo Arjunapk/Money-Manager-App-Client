@@ -1,0 +1,17 @@
+.history-table {
+    border-radius: 10px;
+}
+
+th, td {
+    padding: 15px !important;
+    font-weight: 500;
+    border: 1px solid gray;
+}
+
+.income {
+    color: green !important;
+}
+
+.expenses {
+    color: red !important;
+}

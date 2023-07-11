@@ -6,6 +6,7 @@ import Home from './components/Home'
 import Login from './components/Login'
 import Signup from './components/Signup'
 import AddTransaction from './components/AddTransaction'
+import History from './components/History'
 import MoneyManagerContext from './context/MoneyManagerContext'
 import './App.css'
 import Cookies from 'js-cookie'
@@ -56,6 +57,7 @@ function App() {
           <Route exact path='/login' element={<Login />} />
           <Route exact path='/' element={<Home />} />
           <Route exact path='/add-transaction' element={<AddTransaction />} />
+          <Route exact path='/history' element={<History />} />
         </Routes>
       </Container>
     </MoneyManagerContext.Provider>

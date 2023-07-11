@@ -50,7 +50,7 @@ const AddTransaction = () => {
     }
     const response = await fetch(url, options)
     await response.json()
-    navigate('/')
+    navigate('/history')
     window.location.reload()
   }
 

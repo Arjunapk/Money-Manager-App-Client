@@ -4,7 +4,6 @@ import Container from 'react-bootstrap/Container'
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import Offcanvas from 'react-bootstrap/Offcanvas';
-import Button from 'react-bootstrap/Button'
 import './index.css'
 
 function NavigationBar() {
@@ -38,7 +37,7 @@ function NavigationBar() {
               <Nav.Link href="/history">History</Nav.Link>
               <Nav.Link href="/about">About</Nav.Link>
               <Nav.Link href="/add-transaction">Add Transaction</Nav.Link>
-              <Button className='logout-button' variant="primary" onClick={onClickLogout}>Logout</Button>
+              <Nav.Link onClick={onClickLogout}>Logout</Nav.Link>
             </Nav>
           </Offcanvas.Body>
         </Navbar.Offcanvas>
