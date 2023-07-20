@@ -19,7 +19,13 @@ th, td {
 .button-card {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    width: 40%;
+    justify-content: space-evenly;
+    width: 80%;
     margin: auto;
+}
+
+@media screen and (min-width: 768px) {
+    .button-card {
+        width: 40%;
+    }
 }
