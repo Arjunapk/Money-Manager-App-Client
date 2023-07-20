@@ -17,8 +17,8 @@ const History = () => {
     }
   })
 
-  const onClickHistory = () => {
-    navigate('/history')
+  const onClickHome = () => {
+    navigate('/')
   }
   
   const onClickAddTransaction = () => {
@@ -55,16 +55,18 @@ const History = () => {
                         return (
                           <tr key={item.transaction_id}>
                             <td className={activeStyle}>{index + 1}</td>
-                            <td className={activeStyle}>{item.type}</td>
+                            <td className={activeStyle}>{item.date}</td>
                             <td className={activeStyle}>{item.title}</td>
-                            <td className={activeStyle}>{item.amount}</td>          
+                            <td className={activeStyle}>{item.type}</td>
+                            <td className={activeStyle}>{item.amount}</td>
+                            <td className={activeStyle}>{item.description}</td>
                           </tr>
                         )
                       })}
                     </tbody>
                   </Table>
                   <div className='button-card'>
-                    <button type='button' className='btn btn-primary' onClick={onClickHistory}>History</button>
+                    <button type='button' className='btn btn-primary' onClick={onClickHome}>Home</button>
                     <button type='button' className='btn btn-primary' onClick={onClickAddTransaction}>Add Transaction</button>
                   </div>
                 </>

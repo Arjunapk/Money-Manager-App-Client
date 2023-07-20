@@ -48,7 +48,7 @@ function App() {
           updateIncomeAndExpenses(data)
         }
       });
-  }, [])
+  })
 
   return (
     <MoneyManagerContext.Provider value={{transactionsList, updateTransactionsList, income, changeIncome, expenses, changeExpenses}}>

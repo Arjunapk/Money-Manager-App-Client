@@ -1,3 +1,4 @@
+import {format} from 'date-fns'
 import { useState, useEffect } from 'react'
 import Cookies from 'js-cookie'
 import { Container } from 'react-bootstrap'
@@ -14,6 +15,8 @@ const AddTransaction = () => {
   const [title, changeTitle] = useState('')
   const [type, changeType] = useState(typeList[0].id)
   const [amount, changeAmount] = useState('')
+  const [date, changeDate] = useState('')
+  const [description, changeDescription] = useState('')
   const navigate = useNavigate()
   
   useEffect(() => {
@@ -21,7 +24,8 @@ const AddTransaction = () => {
     if (jwtToken === undefined) {
       navigate('/login')
     }
-  })
+    changeDate(format(new Date(), 'yyyy-MM-dd'))
+  }, [])
 
   const onChangeTitle = event => {
     changeTitle(event.target.value)
@@ -35,9 +39,17 @@ const AddTransaction = () => {
     changeAmount(event.target.value)
   }
 
+  const onChangeDate = event => {
+    changeDate(event.target.value)
+  }
+
+  const onChangeDescription = event => {
+    changeDescription(event.target.value)
+  }
+
   const onSubmitAddTransaction = async event => {
     event.preventDefault()
-    const transactionDetails = {title, type, amount}
+    const transactionDetails = {title, type, amount, date, description}
     const jwtToken = Cookies.get('jwt_token')
     const url = 'https://money-manager-api-v4pu.onrender.com/transactions'
     const options = {
@@ -51,7 +63,6 @@ const AddTransaction = () => {
     const response = await fetch(url, options)
     await response.json()
     navigate('/history')
-    window.location.reload()
   }
 
   return (
@@ -70,6 +81,10 @@ const AddTransaction = () => {
           </select>
           <label className='add-transaction-label' htmlFor='amout'>AMOUNT</label>
           <input className='add-transaction-input form-control' id='amount' type='number' value={amount} onChange={onChangeAmount} placeholder='Amount' required />
+          <label className='add-transaction-label' htmlFor='date'>DATE</label>
+          <input className='add-transaction-input form-control' id='date' type='date' value={date} onChange={onChangeDate} required />
+          <label className='add-transaction-label' htmlFor='description'>DESCRIPTION</label>
+          <input className='add-transaction-input form-control' id='description' type='text' value={description} onChange={onChangeDescription} placeholder='Description' required />
           <button type='submit' className='add-transaction-button btn btn-primary'>Add Transaction</button>
         </form>
       </Container>
