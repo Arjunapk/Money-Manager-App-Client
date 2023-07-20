@@ -3,10 +3,8 @@ import React from "react";
 const MoneyManagerContext = React.createContext({
     transactionsList: [],
     updateTransactionsList: () => {},
-    income: 0,
-    changeIncome: () => {},
-    expenses: 0,
-    changeExpenses: () => {}
+    incomeAndExpenses: {income: 0, expenses: 0},
+    changeIncomeAndExpenses: () => {}
 })
 
 export default MoneyManagerContext

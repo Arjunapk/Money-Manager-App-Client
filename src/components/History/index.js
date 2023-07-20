@@ -33,6 +33,7 @@ const History = () => {
         if (transactionsList[0] !== undefined) {
           headings = Object.keys(transactionsList[0])
         }
+        console.log(transactionsList)
 
         return (
           <>

@@ -17,11 +17,13 @@ const Home = () => {
       navigate('/login')
     }
   })
+  console.log('home')
 
   return (
   <MoneyManagerContext.Consumer>
   {value => {
-    const {income, expenses} = value
+    const {incomeAndExpenses} = value
+    const {income, expenses} = incomeAndExpenses
     const userDetails = JSON.parse(localStorage.getItem('user_details'))
 
     return (

@@ -24,8 +24,12 @@ const AddTransaction = () => {
     if (jwtToken === undefined) {
       navigate('/login')
     }
+  })
+  console.log(date)
+
+  useEffect(() => {
     changeDate(format(new Date(), 'yyyy-MM-dd'))
-  }, [])
+  }, [date])
 
   const onChangeTitle = event => {
     changeTitle(event.target.value)

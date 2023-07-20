@@ -13,21 +13,19 @@ import Cookies from 'js-cookie'
 
 function App() {
   const [transactionsList, updateTransactionsList] = useState([])
-  const [income, changeIncome] = useState(0)
-  const [expenses, changeExpenses] = useState(0)
+  const [incomeAndExpenses, changeIncomeAndExpenses] = useState({income: 0, expenses: 0})
 
   const updateIncomeAndExpenses = data => {
-    let incomeValue = 0
-    let expensesValue = 0
+    let income = 0
+    let expenses = 0
     data.forEach(each => {
       if (each.type === 'INCOME') {
-        incomeValue += parseInt(each.amount)
+        income += parseInt(each.amount)
       } else if (each.type === 'EXPENSES') {
-        expensesValue += parseInt(each.amount)
+        expenses += parseInt(each.amount)
       }
     })
-    changeIncome(incomeValue)
-    changeExpenses(expensesValue)
+    changeIncomeAndExpenses({income, expenses})
   }
 
   useEffect(() => {
@@ -48,10 +46,11 @@ function App() {
           updateIncomeAndExpenses(data)
         }
       });
-  })
+  }, [])
+  console.log('App')
 
   return (
-    <MoneyManagerContext.Provider value={{transactionsList, updateTransactionsList, income, changeIncome, expenses, changeExpenses}}>
+    <MoneyManagerContext.Provider value={{transactionsList, updateTransactionsList, incomeAndExpenses, changeIncomeAndExpenses}}>
       <Container fluid>
         <Routes>
           <Route exact path='/signup' element={<Signup />} />
